@@ -1,0 +1,12 @@
+body {
+	background: #F5F5F5;
+}
+
+.app-header {
+	margin-bottom: 12px;
+}
+
+.hidden-text-box {
+	opacity: .01;
+    height: 0;
+}

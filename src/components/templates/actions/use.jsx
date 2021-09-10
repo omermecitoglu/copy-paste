@@ -103,6 +103,7 @@ export default function Action({ title, content }) {
 						)}
 					</form>
 					<textarea
+						className="hidden-text-box"
 						tabIndex={-1}
 						ref={outputBox}
 						value={values.output}
