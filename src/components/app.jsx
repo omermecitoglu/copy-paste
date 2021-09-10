@@ -1,9 +1,10 @@
 import React from "react";
-import { Container, Button } from "@material-ui/core";
+import { Container } from "@material-ui/core";
+import TemplatesList from "./templates/list";
 
 const App = () => (
 	<Container>
-		<Button variant="contained" color="primary">Hello World</Button>
+		<TemplatesList />
 	</Container>
 );
 
