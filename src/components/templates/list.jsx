@@ -8,8 +8,8 @@ const List = ({ templates }) => (
 		<Table>
 			<TableHead>
 				<TableRow>
-					<TableCell>Title</TableCell>
-					<TableCell align="right">&nbsp;</TableCell>
+					<TableCell className="dark-table-header">Title</TableCell>
+					<TableCell className="dark-table-header" align="right">&nbsp;</TableCell>
 				</TableRow>
 			</TableHead>
 			<TableBody>
