@@ -7,6 +7,12 @@ export default {
 		title,
 		content,
 	}),
+	update: (uuid, title, content) => ({
+		type: "UPDATE_TEMPLATE",
+		uuid,
+		title,
+		content,
+	}),
 	destroy: (uuid) => ({
 		type: "DESTROY_TEMPLATE",
 		uuid,

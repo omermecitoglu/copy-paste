@@ -6,6 +6,15 @@ const template = (state, action) => {
 				title: action.title,
 				content: action.content,
 			};
+		case "UPDATE_TEMPLATE":
+			if(state.uuid !== action.uuid) {
+				return state;
+			}
+			return {
+				...state,
+				title: action.title,
+				content: action.content,
+			};
 		default:
 			return state;
 	}
@@ -18,6 +27,8 @@ export default (state = [], action) => {
 				...state,
 				template(undefined, action),
 			];
+		case "UPDATE_TEMPLATE":
+			return state.map(e => template(e, action));
 		case "DESTROY_TEMPLATE":
 			return state.filter(e => e.uuid !== action.uuid);
 		case "CLEAR_TEMPLATES":
