@@ -18,6 +18,8 @@ export default (state = [], action) => {
 				...state,
 				template(undefined, action),
 			];
+		case "DESTROY_TEMPLATE":
+			return state.filter(e => e.uuid !== action.uuid);
 		case "CLEAR_TEMPLATES":
 			return [];
 		default:

@@ -7,4 +7,8 @@ export default {
 		title,
 		content,
 	}),
+	destroy: (uuid) => ({
+		type: "DESTROY_TEMPLATE",
+		uuid,
+	}),
 };
