@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 import reducers from "~/reducers";
 import { loadState, saveState } from "./storage";
+import throttle from "lodash/throttle";
 
 const persistedState = loadState();
 
@@ -10,8 +11,8 @@ const store = createStore(
 	// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
-store.subscribe(() => {
+store.subscribe(throttle(() => {
 	saveState(store.getState());
-});
+}, 1000));
 
 export default store;
