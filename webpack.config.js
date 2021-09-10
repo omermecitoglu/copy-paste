@@ -2,6 +2,7 @@ const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => ({
 	target: 'web',
@@ -18,6 +19,9 @@ module.exports = (env, argv) => ({
 		new HtmlWebpackPlugin({
 			filename: './index.html',
 			inject: 'body',
+		}),
+		new MiniCssExtractPlugin({
+			filename: 'css/style.css',
 		}),
 	],
 	optimization: {
@@ -40,6 +44,18 @@ module.exports = (env, argv) => ({
 				test: /\.(js|jsx)/,
 				exclude: /node_modules/,
 				use: ["babel-loader"],
+			},
+			{
+				test: /\.css$/,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							publicPath: './',
+						},
+					},
+					'css-loader'
+				],
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
